@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="box" id="heading">
+    <h1> <%= listoftitle %></h1></div>
+    <div class="box">
+    
+        
+    
+        <%for(var i=0; i<newlistitems.length ; i++){%>
+            <form action="/delete" method="post">
+                <div class="items">
+                    <input onChange="this.form.submit()" value= "<%=newlistitems[i]._id%>" name="deletedItems" type="checkbox">
+                    <p><%= newlistitems[i].name %></p>
+                </div>
+                <input type="hidden" name="listName" value="<%= listoftitle %>"></input>
+            </form>
+            
+        <%}%>
+        
+        <form class="item" action="/" method="post" autocomplete="off">
+            <input type="text" name="newItem" placeholder="New Item">
+            
+            <button type="submit" name="list" value="<%= listoftitle %>">+</button>
+        </form>
+
+        
+
+
+
+</div>
+
+      
+
+</body>
+</html>
